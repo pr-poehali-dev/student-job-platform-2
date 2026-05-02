@@ -50,13 +50,24 @@ export default function Navbar({ currentPage, navigate }: NavbarProps) {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2">
           <button
             onClick={() => navigate("dashboard")}
             className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <Icon name="LayoutDashboard" size={16} />
             Дашборд
+          </button>
+          <button
+            onClick={() => navigate("profile")}
+            className={`flex items-center gap-2 px-3 py-2 text-sm transition-colors rounded-lg ${
+              currentPage === "profile" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center text-xs font-display font-bold text-primary-foreground">
+              АК
+            </div>
+            Профиль
           </button>
           <button
             onClick={() => navigate("register")}
